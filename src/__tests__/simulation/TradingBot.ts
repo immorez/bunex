@@ -19,8 +19,8 @@ export class TradingBot {
             Math.random() < 0.5
                 ? OrderSideEnumType.BUY
                 : OrderSideEnumType.SELL;
-        const price = Math.floor(Math.random() * 1000) + 1; // Random price between 1 and 1000
-        const quantity = Math.floor(Math.random() * 10) + 1; // Random quantity between 1 and 10
+        const price = Math.floor(Math.random() * 1000) + 1;
+        const quantity = Math.floor(Math.random() * 10) + 1;
 
         const order = new Order(
             `${this.id}-${Date.now()}`,
