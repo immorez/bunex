@@ -4,15 +4,17 @@
     "type": "module",
     "scripts": {
         "build": "yarn run clean && yarn run db:generate && tsc --skipLibCheck --noEmit",
-        "lint:fix": "eslint --ignore-path .gitignore --fix --ext .js,.ts,.tsx .",
+        "lint:fix": "eslint --ignore-pattern .gitignore --fix",
         "lint:strict": "eslint --max-warnings=0 src",
         "type:check": "tsc --noEmit --incremental false",
         "test:watch": "vitest --watch",
         "test": "vitest run",
         "test:coverage": "vitest run --coverage",
         "format": "prettier --loglevel silent -w --cache .",
-        "format:check": "prettier -c ."
+        "format:check": "prettier -c .",
+        "prepare": "husky install"
     },
+    "license": "MIT",
     "devDependencies": {
         "@types/bun": "latest",
         "@vitest/ui": "^2.1.3",
