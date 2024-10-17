@@ -13,7 +13,7 @@ describe('Order', () => {
         const order = new Order('1', pair, OrderSideEnumType.BUY, 1000, 0.5);
         expect(order.getId()).toBe('1');
         expect(order.getPair()).toBe(pair);
-        expect(order.getType()).toBe(OrderSideEnumType.BUY);
+        expect(order.getSide()).toBe(OrderSideEnumType.BUY);
         expect(order.getPrice()).toBe(1000);
         expect(order.getQuantity()).toBe(0.5);
         expect(order.getStatus()).toBe(OrderStatusEnumType.PENDING);

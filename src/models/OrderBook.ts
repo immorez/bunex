@@ -1,6 +1,6 @@
-import type {
-    OrderSideEnumType,
+import {
     OrderStatusEnumType,
+    type OrderSideEnumType,
 } from '@/types/order.types';
 import { Order } from './Order';
 import { Pair } from './Pair';
@@ -31,8 +31,8 @@ export class OrderBook {
         return this.orders;
     }
 
-    getOrdersByType(type: OrderSideEnumType): Order[] {
-        return this.orders.filter((order) => order.getType() === type);
+    getOrdersBySide(side: OrderSideEnumType): Order[] {
+        return this.orders.filter((order) => order.getSide() === side);
     }
 
     getOrdersByStatus(status: OrderStatusEnumType): Order[] {

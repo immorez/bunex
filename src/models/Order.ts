@@ -9,7 +9,7 @@ export class Order {
     private readonly pair: Pair;
     private readonly side: OrderSideEnumType;
     private readonly price: number;
-    private readonly quantity: number;
+    private quantity: number;
     private status: OrderStatusEnumType;
 
     constructor(
@@ -49,7 +49,7 @@ export class Order {
         return this.pair;
     }
 
-    getType(): OrderSideEnumType {
+    getSide(): OrderSideEnumType {
         return this.side;
     }
 
@@ -65,7 +65,15 @@ export class Order {
         return this.status;
     }
 
+    setQuantity(quantity: number): void {
+        this.quantity = this.validateQuantity(quantity);
+    }
+
     cancelOrder(): void {
         this.status = OrderStatusEnumType.CANCELED;
+    }
+
+    closeOrder(): void {
+        this.status = OrderStatusEnumType.COMPLETED;
     }
 }
