@@ -21,6 +21,7 @@ describe('OrderBook', () => {
         const order = new Order('1', pair, OrderSideEnumType.BUY, 1000, 0.5);
         orderBook.addOrder(order);
         orderBook.removeOrder('1');
+
         expect(orderBook.getOrders()).not.toContain(order);
     });
 
