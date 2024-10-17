@@ -1,0 +1,97 @@
+{
+    "root": true,
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module",
+        "tsconfigRootDir": "./"
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/typescript",
+        "prettier"
+    ],
+    "env": {
+        "es2021": true,
+        "node": true,
+        "jest": true
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {
+                "project": "./tsconfig.json",
+                "alwaysTryTypes": true
+            }
+        }
+    },
+    "plugins": ["@typescript-eslint", "import", "unused-imports"],
+    "rules": {
+        "no-console": "warn",
+        "import/no-unresolved": "error",
+        "import/no-named-as-default": "off",
+        "import/no-named-as-default-member": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "import/default": "warn",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/ban-ts-comment": "warn",
+        "@typescript-eslint/no-non-null-asserted-optional-chain": "warn",
+        "no-unused-vars": [
+            "warn",
+            { "args": "none", "vars": "all", "ignoreRestSiblings": false }
+        ],
+
+        "import/order": [
+            "error",
+            {
+                "groups": [
+                    "builtin", // Built-in Node.js modules
+                    "external", // External modules from node_modules
+                    "internal", // Internal modules (e.g., absolute imports)
+                    ["parent", "sibling", "index"], // Relative imports
+                    "object", // Imports of objects with destructuring
+                    "type" // Type imports (TypeScript)
+                ],
+                "newlines-between": "always", // Newline between each group
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
+            }
+        ],
+        "@typescript-eslint/ban-types": [
+            "error",
+            {
+                "types": {
+                    "String": {
+                        "message": "Use string instead",
+                        "fixWith": "string"
+                    },
+                    "Boolean": {
+                        "message": "Use boolean instead",
+                        "fixWith": "boolean"
+                    },
+                    "Number": {
+                        "message": "Use number instead",
+                        "fixWith": "number"
+                    },
+                    "Object": {
+                        "message": "Use object instead",
+                        "fixWith": "object"
+                    },
+                    "{}": {
+                        "message": "Use object instead",
+                        "fixWith": "unknown"
+                    }
+                },
+                "extendDefaults": false
+            }
+        ]
+    },
+    "globals": {
+        "Express": true
+    }
+}

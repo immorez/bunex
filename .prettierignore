@@ -1,0 +1,8 @@
+build/*
+!build/index.js
+
+src/email-templates/*
+
+prisma/*
+
+node_modules/*
