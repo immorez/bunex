@@ -7,9 +7,9 @@
         "lint:fix": "eslint --ignore-pattern .gitignore --fix",
         "lint:strict": "eslint --max-warnings=0 src",
         "type:check": "tsc --noEmit --incremental false",
-        "test:watch": "vitest --watch",
-        "test": "vitest run",
-        "test:coverage": "vitest run --coverage",
+        "test:watch": "bun test --watch",
+        "test": "bun test",
+        "test:coverage": "bun test --coverage",
         "format": "prettier --loglevel silent -w --cache .",
         "format:check": "prettier -c .",
         "prepare": "husky install"
