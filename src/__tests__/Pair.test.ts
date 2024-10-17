@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'bun:test';
-import { Asset } from '../models/Asset';
-import { Pair } from '../models/Pair';
+import { Asset } from '@/models/Asset';
+import { Pair } from '@/models/Pair';
 
 describe('Pair', () => {
     const baseAsset = new Asset('BTC', 'Bitcoin', 8);

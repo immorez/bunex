@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'bun:test';
-import { Asset } from '../models/Asset';
+import { Asset } from '@/models/Asset';
 
 describe('Asset', () => {
     it('should create an asset with the correct symbol, name and decimals', () => {
