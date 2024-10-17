@@ -3,7 +3,7 @@
     "module": "index.ts",
     "type": "module",
     "scripts": {
-        "build": "yarn run clean && yarn run db:generate && tsc --skipLibCheck --noEmit",
+        "start": "bun ./src/index.ts",
         "lint:fix": "eslint --ignore-pattern .gitignore --fix",
         "lint:strict": "eslint --max-warnings=0 src",
         "type:check": "tsc --noEmit --incremental false",

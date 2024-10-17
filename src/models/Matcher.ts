@@ -57,7 +57,5 @@ export class Matcher {
         if (sellOrder.getQuantity() === 0) {
             sellOrder.closeOrder();
         }
-
-        console.log('TRADE HAPPENED', buyOrder.getId(), sellOrder.getId());
     }
 }
