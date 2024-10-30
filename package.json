@@ -2,10 +2,6 @@
     "name": "bunex",
     "module": "index.ts",
     "type": "module",
-    "workspaces": [
-        "services/*",
-        "packages/*"
-    ],
     "scripts": {
         "start": "bun ./src/index.ts",
         "lint:fix": "eslint --ignore-pattern .gitignore --fix",
