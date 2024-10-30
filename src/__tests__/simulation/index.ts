@@ -2,7 +2,7 @@ import { Asset } from '@/models/Asset';
 import { Matcher } from '@/models/Matcher';
 import { Pair } from '@/models/Pair';
 import { OrderBook } from '@/models/OrderBook';
-import { TradingBot } from './__tests__/simulation/TradingBot';
+import { TradingBot } from './TradingBot';
 
 const baseAsset = new Asset('BTC', 'Bitcoin', 8);
 const quoteAsset = new Asset('USDT', 'USDT', 2);
