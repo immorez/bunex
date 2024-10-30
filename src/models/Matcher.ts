@@ -1,22 +1,33 @@
 import { Order } from './Order';
 import { OrderBook } from './OrderBook';
 import { OrderSideEnumType, OrderStatusEnumType } from '@/types/order.types';
+import ThreadPool from '@/pool/ThreadPool';
+import { MatchOrdersJob } from '@/jobs/MatchOrdersJob';
 
 export class Matcher {
     private readonly orderBook: OrderBook;
+    private readonly threadPool: ThreadPool;
 
-    constructor(orderBook: OrderBook) {
+    constructor(orderBook: OrderBook, threadPool: ThreadPool) {
         this.orderBook = orderBook;
+        this.threadPool = threadPool;
     }
 
     placeOrder(order: Order): void {
         this.orderBook.addOrder(order);
-        this.matchOrders();
+
+        // Dispatch the matchOrders process to the thread pool
+        console.log(`Creating MatchOrdersJob for order matching...`);
+        const matchJob = new MatchOrdersJob(this, order);
+        this.threadPool.addJob({
+            getKey: () => matchJob.getKey(),
+            toJSON: () => matchJob.toJSON(),
+            process: () => matchJob.process(),
+        });
     }
 
-    private matchOrders(): void {
+    matchOrders(): void {
         const buyOrders = this.orderBook.getOrdersBySide(OrderSideEnumType.BUY);
-
         const sellOrders = this.orderBook.getOrdersBySide(
             OrderSideEnumType.SELL,
         );
@@ -57,5 +68,9 @@ export class Matcher {
         if (sellOrder.getQuantity() === 0) {
             sellOrder.closeOrder();
         }
+    }
+
+    getOrderBook(): OrderBook {
+        return this.orderBook;
     }
 }

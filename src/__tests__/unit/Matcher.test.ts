@@ -5,13 +5,14 @@ import { Order } from '@/models/Order';
 import { Matcher } from '@/models/Matcher';
 import { OrderSideEnumType, OrderStatusEnumType } from '@/types/order.types';
 import { OrderBook } from '@/models/OrderBook';
+import threadPool from '@/utils/threadpool';
 
 describe('Matcher', () => {
     const baseAsset = new Asset('BTC', 'Bitcoin', 8);
     const quoteAsset = new Asset('USDT', 'USDT', 2);
     const pair = new Pair(baseAsset, quoteAsset);
     const orderBook = new OrderBook(pair);
-    const matcher = new Matcher(orderBook);
+    const matcher = new Matcher(orderBook, threadPool);
 
     it('should match buy and sell orders correctly', () => {
         const buyOrder = new Order('1', pair, OrderSideEnumType.BUY, 1000, 1);
