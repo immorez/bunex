@@ -1,6 +1,7 @@
 import { Order } from './Order';
 import { OrderBook } from './OrderBook';
 import { OrderSideEnumType, OrderStatusEnumType } from '@/types/order.types';
+import type { Pair } from './Pair';
 
 export class Matcher {
     private readonly orderBook: OrderBook;
@@ -15,9 +16,10 @@ export class Matcher {
     }
 
     private matchOrders(): void {
-        const buyOrders = this.orderBook.getOrdersBySide(OrderSideEnumType.BUY);
-
-        const sellOrders = this.orderBook.getOrdersBySide(
+        const buyOrders = this.orderBook.getPendingOrdersBySide(
+            OrderSideEnumType.BUY,
+        );
+        const sellOrders = this.orderBook.getPendingOrdersBySide(
             OrderSideEnumType.SELL,
         );
 
@@ -33,12 +35,12 @@ export class Matcher {
         }
     }
 
+    getPair(): Pair {
+        return this.orderBook.getPair();
+    }
+
     private canMatch(buyOrder: Order, sellOrder: Order): boolean {
-        return (
-            buyOrder.getPrice() >= sellOrder.getPrice() &&
-            buyOrder.getStatus() === OrderStatusEnumType.PENDING &&
-            sellOrder.getStatus() === OrderStatusEnumType.PENDING
-        );
+        return buyOrder.getPrice() >= sellOrder.getPrice();
     }
 
     private executeOrder(buyOrder: Order, sellOrder: Order): void {

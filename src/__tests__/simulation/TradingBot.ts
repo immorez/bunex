@@ -1,17 +1,14 @@
 import type { Matcher } from '@/models/Matcher';
 import { Order } from '@/models/Order';
-import type { Pair } from '@/models/Pair';
 import { OrderSideEnumType } from '@/types/order.types';
 
 export class TradingBot {
     private matcher: Matcher;
-    private pair: Pair;
     private id: string;
 
-    constructor(id: string, matcher: Matcher, pair: Pair) {
+    constructor(id: string, matcher: Matcher) {
         this.id = id;
         this.matcher = matcher;
-        this.pair = pair;
     }
 
     placeRandomOrder(): void {
@@ -24,7 +21,7 @@ export class TradingBot {
 
         const order = new Order(
             `${this.id}-${Date.now()}`,
-            this.pair,
+            this.matcher.getPair(),
             side,
             price,
             quantity,

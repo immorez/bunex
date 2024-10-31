@@ -35,6 +35,14 @@ export class OrderBook {
         return this.orders.filter((order) => order.getSide() === side);
     }
 
+    getPendingOrdersBySide(side: OrderSideEnumType): Order[] {
+        return this.orders.filter(
+            (order) =>
+                order.getSide() === side &&
+                order.getStatus() === OrderStatusEnumType.PENDING,
+        );
+    }
+
     getOrdersByStatus(status: OrderStatusEnumType): Order[] {
         return this.orders.filter((order) => order.getStatus() === status);
     }

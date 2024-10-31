@@ -12,11 +12,11 @@ const matcher = new Matcher(orderBook);
 
 const bots: TradingBot[] = [];
 
-for (let i = 1; i <= 500; i++) {
-    const bot = new TradingBot(`Bot-${i}`, matcher, pair);
+for (let i = 1; i <= 50; i++) {
+    const bot = new TradingBot(`Bot-${i}`, matcher);
     bots.push(bot);
 }
 
 setInterval(() => {
     bots.forEach((bot) => bot.placeRandomOrder());
-}, 5);
+}, 1000);
