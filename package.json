@@ -3,7 +3,7 @@
     "module": "index.ts",
     "type": "module",
     "scripts": {
-        "start": "bun ./src/index.ts",
+        "start": "bun ./src/__tests__/simulation/index.ts",
         "lint:fix": "eslint --ignore-pattern .gitignore --fix",
         "lint:strict": "eslint --max-warnings=0 src",
         "type:check": "tsc --noEmit --incremental false",
@@ -11,17 +11,11 @@
         "test": "bun test",
         "test:coverage": "bun test --coverage",
         "format": "prettier --loglevel silent -w --cache .",
-        "format:check": "prettier -c .",
-        "prepare": "husky install"
+        "format:check": "prettier -c ."
     },
     "license": "MIT",
     "devDependencies": {
-        "@types/bun": "latest"
-    },
-    "peerDependencies": {
-        "typescript": "^5.0.0"
-    },
-    "dependencies": {
+        "@types/bun": "latest",
         "@typescript-eslint/eslint-plugin": "^8.9.0",
         "@typescript-eslint/parser": "^8.9.0",
         "eslint": "^9.12.0",
@@ -31,5 +25,8 @@
         "eslint-plugin-prettier": "^5.2.1",
         "eslint-plugin-unused-imports": "^4.1.4",
         "prettier": "^3.3.3"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
     }
 }
