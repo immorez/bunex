@@ -4,8 +4,6 @@
 
 ## Red-Black Tree for Order Management
 
----
-
 In this project, a Red-Black Tree (RBT) data structure is used within the `OrderBook` to efficiently store, retrieve, and manage orders. Here's why the RBT is advantageous in this setup:
 
 1.  **Self-Balancing Properties**: The Red-Black Tree balances itself automatically with every insertion or deletion, maintaining an `O(log n)` search time for order lookups and modifications. This is critical for efficient order matching in high-frequency trading scenarios.
@@ -26,7 +24,6 @@ The Red-Black Tree structure enables the `OrderBook` to handle large volumes of 
 -   **Multi-pair Trading**: Support for various trading pairs, with each pair operating on its own server.
 -   **TCP Order Book**: Orders are placed over TCP connections, enabling real-time communication.
 -   **Modular Structure**: Each order book instance can be run independently on a unique port.
--   **Event-Driven Architecture**: Events manage order placement, matching, and state updates for scalability.
 -   **TypeScript**: Full type safety and modern JavaScript features for maintainability and reliability.
 
 ## Prerequisites
