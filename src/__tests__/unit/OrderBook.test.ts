@@ -2,7 +2,7 @@ import { describe, it, expect } from 'bun:test';
 import { Asset } from '@/models/Asset';
 import { Pair } from '@/models/Pair';
 import { Order } from '@/models/Order';
-import { OrderSideEnumType, OrderStatusEnumType } from '@/types/order.types';
+import { OrderSideEnumType } from '@/types/order.types';
 import { OrderBook } from '@/models/OrderBook';
 
 describe('OrderBook', () => {

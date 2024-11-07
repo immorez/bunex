@@ -24,8 +24,6 @@ for (let i = 1; i <= 50; i++) {
 setInterval(() => {
     bots.forEach((bot) => bot.placeRandomOrder());
 
-    // Render the order book after placing orders
-    const maxPrice = 1000; // Adjust based on your price range
     console.log('-'.repeat(110));
     console.log(
         colorize('Buyers', 'green').padStart(55) +

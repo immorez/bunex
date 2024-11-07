@@ -1,6 +1,6 @@
 import { Order } from './Order';
 import { OrderBook } from './OrderBook';
-import { OrderSideEnumType, OrderStatusEnumType } from '@/types/order.types';
+import { OrderSideEnumType } from '@/types/order.types';
 import type { Pair } from './Pair';
 
 export class Matcher {

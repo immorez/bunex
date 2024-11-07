@@ -1,6 +1,4 @@
-import type { Order } from '@/models/Order';
 import type { OrderBook } from '@/models/OrderBook';
-import { OrderSideEnumType } from '@/types/order.types';
 
 export class OrderBookRenderer {
     static renderStatistics(orderBook: OrderBook): void {
