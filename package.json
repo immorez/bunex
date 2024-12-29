@@ -1,32 +1,32 @@
 {
-    "name": "bunex",
-    "module": "index.ts",
-    "type": "module",
-    "scripts": {
-        "start": "bun ./src/__tests__/simulation/index.ts",
-        "lint:fix": "eslint --ignore-pattern .gitignore --fix",
-        "lint:strict": "eslint --max-warnings=0 src",
-        "type:check": "tsc --noEmit --incremental false",
-        "test:watch": "bun test --watch",
-        "test": "bun test",
-        "test:coverage": "bun test --coverage",
-        "format": "prettier --loglevel silent -w --cache .",
-        "format:check": "prettier -c ."
-    },
-    "license": "MIT",
-    "devDependencies": {
-        "@types/bun": "latest",
-        "@typescript-eslint/eslint-plugin": "^8.9.0",
-        "@typescript-eslint/parser": "^8.9.0",
-        "eslint": "^9.12.0",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-import-resolver-typescript": "^3.6.3",
-        "eslint-plugin-import": "^2.31.0",
-        "eslint-plugin-prettier": "^5.2.1",
-        "eslint-plugin-unused-imports": "^4.1.4",
-        "prettier": "^3.3.3"
-    },
-    "peerDependencies": {
-        "typescript": "^5.0.0"
-    }
+  "name": "cachepal",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "lint:fix": "eslint --ignore-pattern .gitignore --fix",
+    "lint:strict": "eslint --max-warnings=0 src",
+    "type:check": "tsc --noEmit --incremental false",
+    "test:watch": "jest --watch",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "format": "prettier --loglevel silent -w --cache .",
+    "format:check": "prettier -c ."
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.9.0",
+    "@typescript-eslint/parser": "^8.9.0",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "prettier": "^3.3.3",
+    "typescript": "^5.0.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "@types/jest": "^29.0.0"
+  }
 }
